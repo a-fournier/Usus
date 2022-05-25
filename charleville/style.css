@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  height: 100vh;
+}
+
+nav {
+  background-color: #2F8CC8;
+  height: 48px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+nav p {
+  color: white;
+}
+
+main {
+  padding: 4.5em 0;
+  display: flex;
+  justify-content: center;
+}
+
+.background {
+  position: absolute;
+  filter: blur(3px);
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 510px;
+  width: 344px;
+  background-color: white;
+  border-radius:10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.card:hover img {
+  height: 0
+}
+
+.card:hover .content p {
+  height: 78%;
+}
+
+.card:hover .content {
+  height: 100%;
+}
+
+.card img {
+  height: 38%;
+  object-fit: contain;
+  border-radius: 10px 10px 0 0;
+  background-color: #63A9D6;
+  transition: all 500ms ease;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5% 5%;
+  height: 62%;
+}
+
+.content h1 {
+  margin: 0;
+  height: 15%
+}
+
+.content h2 {
+  margin: 2% 0;
+  height: 15%
+}
+
+.content p {
+  margin: 0;
+  color: #878787;
+  height: 0;
+  transition: all 500ms ease;
+  overflow: scroll;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10%;
+  height: 20%;
+}
+
+a {
+  min-width: 100px;
+  padding: 0.5em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  background-color: #2F8CC8;
+  border-radius: 10px;
+  box-shadow: 0px 9px 5px -8px rgba(0,0,0,0.5);
+  transition: all 500ms ease;
+  height: fit-content;
+}
+
+a:hover {
+  background-color: #499ACF;
+  box-shadow: 0px 9px 15px -8px rgba(0,0,0,0.5);
+}
