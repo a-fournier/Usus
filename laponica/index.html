@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Laponica</title>
+  <meta name="title" content="Laponica">
+  <meta name="description" content="An intuitive tools to learn hiragana and katakana">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://usus-app.netlify.app/laponica/">
+  <meta property="og:title" content="Laponica">
+  <meta property="og:description" content="An intuitive tools to learn hiragana and katakana">
+  <meta property="og:image" content="https://wallpapercave.com/wp/wp3864457.png">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://usus-app.netlify.app/laponica/">
+  <meta property="twitter:title" content="Laponica">
+  <meta property="twitter:description" content="An intuitive tools to learn hiragana and katakana">
+  <meta property="twitter:image" content="https://wallpapercave.com/wp/wp3864457.png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="./ta.png" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <script src="hiragana.js" defer></script>
+  <script src="katakana.js" defer></script>
+  <script src="script.js" defer></script>
+  <main>
+    <div class="circle outside"></div>
+    <div class="circle symbol">
+      <p class="value">ぁ</p>
+    </div>
+    <div class="symbols">
+      <div class="symbols-left">
+        <div class="symbols-group a"></div>
+        <div class="symbols-group ka"></div>
+        <div class="symbols-group sa"></div>
+        <div class="symbols-group ta"></div>
+        <div class="symbols-group na"></div>
+        <div class="symbols-group ha"></div>
+        <div class="symbols-group ma"></div>
+        <div class="symbols-group ra"></div>
+      </div>
+      <div class="symbols-center">
+        <div class="symbols-group ya"></div>
+        <div class="symbols-group wa"></div>
+      </div>
+      <div class="symbols-right">
+        <div class="symbols-group ga"></div>
+        <div class="symbols-group za"></div>
+        <div class="symbols-group da"></div>
+        <div class="symbols-group ba"></div>
+        <div class="symbols-group pa"></div>
+      </div>
+    </div>
+
+    <h1 class="points">0</h1>
+    <div class="combos hidden">+ 0</div>
+    <div class="button">
+      <input type="checkbox" class="checkbox">
+      <div class="knobs"></div>
+    </div>
+  </main>
+  <section class="learn">
+    <h1 class="title">LEARN</h1>
+    <table class="table">
+      <tbody class="table-body">
+      </tbody>
+    </table>
+  </section>
+  <p>v1.0.0 - Spay Shawl</p>
+</body>
+
+</html>
