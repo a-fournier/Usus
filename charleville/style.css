@@ -33,6 +33,7 @@ main {
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 510px;
@@ -42,24 +43,26 @@ main {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
-.card:hover img {
-  height: 0
-}
-
-.card:hover .content p {
-  height: 78%;
-}
-
-.card:hover .content {
-  height: 100%;
-}
-
-.card img {
+.card .illustration {
   height: 38%;
   object-fit: contain;
   border-radius: 10px 10px 0 0;
   background-color: #63A9D6;
   transition: all 500ms ease;
+}
+
+.card .icon {
+  position: absolute;
+  height: 32px;
+  right: 0.5em;
+  top: 0.5em;
+  filter: invert(1);
+  cursor: pointer;
+  transition: all 500ms ease;
+}
+
+.card .icon:hover {
+  transform: scale(1.1)
 }
 
 .content {
@@ -75,7 +78,7 @@ main {
 }
 
 .content h2 {
-  margin: 2% 0;
+  margin: 5% 0;
   height: 15%
 }
 
@@ -85,6 +88,12 @@ main {
   height: 0;
   transition: all 500ms ease;
   overflow: scroll;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  height: 80%;
 }
 
 .actions {
