@@ -4,7 +4,8 @@ const pointsHtml = document.getElementsByClassName("points")[0];
 const checkboxHtml = document.getElementsByClassName('checkbox')[0];
 const tablebodyHtml = document.getElementsByClassName("table-body")[0];
 
-let hiraganaKatakana = checkboxHtml.checked ? katakana : hiragana;
+let hiraganaKatakana = checkboxHtml.checked ? [...katakana] : [...hiragana];
+let staticHiraganaKatakana = checkboxHtml.checked ? [...katakana] : [...hiragana];
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
@@ -14,7 +15,16 @@ function getRandomInt(max) {
 
 function getRandomSymbol() {
   const random = getRandomInt(hiraganaKatakana.length);
-  return hiraganaKatakana[random];
+  const symbol = hiraganaKatakana[random];
+
+  hiraganaKatakana.splice(random, 1);
+
+  if(hiraganaKatakana.length === 0) {
+    hiraganaKatakana = checkboxHtml.checked ? [...katakana] : [...hiragana];
+  }
+
+
+  return symbol;
 }
 
 function setSymbol() {
@@ -56,7 +66,7 @@ async function handleClick(target) {
     combosHtml.textContent = "+ 0";
   }
 
-  setSymbol(getRandomSymbol());
+  setSymbol();
   combosHtml.className = "combos";
   await delay(1250);
   combosHtml.className = "combos hidden";
@@ -95,21 +105,21 @@ function addSymbols(symbols, className) {
 }
 
 function loadSymbols() {
-  addSymbols(hiraganaKatakana.slice(0, 5), "a");
-  addSymbols(hiraganaKatakana.slice(5, 10), "ka");
-  addSymbols(hiraganaKatakana.slice(10, 15), "sa");
-  addSymbols(hiraganaKatakana.slice(15, 20), "ta");
-  addSymbols(hiraganaKatakana.slice(20, 25), "na");
-  addSymbols(hiraganaKatakana.slice(25, 30), "ha");
-  addSymbols(hiraganaKatakana.slice(30, 35), "ma");
-  addSymbols(hiraganaKatakana.slice(35, 38), "ya");
-  addSymbols(hiraganaKatakana.slice(38, 43), "ra");
-  addSymbols(hiraganaKatakana.slice(43, 46), "wa");
-  addSymbols(hiraganaKatakana.slice(46, 51), "ga");
-  addSymbols(hiraganaKatakana.slice(51, 56), "za");
-  addSymbols(hiraganaKatakana.slice(56, 61), "da");
-  addSymbols(hiraganaKatakana.slice(61, 66), "ba");
-  addSymbols(hiraganaKatakana.slice(66, 71), "pa");
+  addSymbols(staticHiraganaKatakana.slice(0, 5), "a");
+  addSymbols(staticHiraganaKatakana.slice(5, 10), "ka");
+  addSymbols(staticHiraganaKatakana.slice(10, 15), "sa");
+  addSymbols(staticHiraganaKatakana.slice(15, 20), "ta");
+  addSymbols(staticHiraganaKatakana.slice(20, 25), "na");
+  addSymbols(staticHiraganaKatakana.slice(25, 30), "ha");
+  addSymbols(staticHiraganaKatakana.slice(30, 35), "ma");
+  addSymbols(staticHiraganaKatakana.slice(35, 38), "ya");
+  addSymbols(staticHiraganaKatakana.slice(38, 43), "ra");
+  addSymbols(staticHiraganaKatakana.slice(43, 46), "wa");
+  addSymbols(staticHiraganaKatakana.slice(46, 51), "ga");
+  addSymbols(staticHiraganaKatakana.slice(51, 56), "za");
+  addSymbols(staticHiraganaKatakana.slice(56, 61), "da");
+  addSymbols(staticHiraganaKatakana.slice(61, 66), "ba");
+  addSymbols(staticHiraganaKatakana.slice(66, 71), "pa");
 }
 
 loadSymbols();
@@ -141,8 +151,11 @@ checkboxHtml.addEventListener("change", () => {
   </div>
   `;
   hiraganaKatakana = document.getElementsByClassName("checkbox")[0].checked
-    ? katakana
-    : hiragana;
+    ? [...katakana]
+    : [...hiragana];
+  staticHiraganaKatakana = document.getElementsByClassName("checkbox")[0].checked
+    ? [...katakana]
+    : [...hiragana];
   loadSymbols();
   setSymbol(getRandomSymbol);
 });
